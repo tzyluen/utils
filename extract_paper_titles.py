@@ -6,7 +6,7 @@
 
 import argparse
 import os
-from pyPdf import PdfFileWriter, PdfFileReader
+from PyPDF2 import PdfFileWriter, PdfFileReader
 
 
 def do_cmd_args_line():
@@ -30,9 +30,9 @@ def main():
             subject = pdfile.getDocumentInfo().subject
             author = pdfile.getDocumentInfo().author
 
-            if author == None:
+            if author == None or author == '':
                 author = 'Unknown'
-            if title == None:
+            if title == None or title == '':
                 title = os.path.splitext(f)[0]
 
             tgtfname = '[{0}] {1}.pdf'.format(author, title)
